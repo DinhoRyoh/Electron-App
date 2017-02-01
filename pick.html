@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="public/img/icon.png" />
+    <meta charset="UTF-8">
+    <title>Pick a champion</title>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="public/scripts/jquery.min.js"></script>
+    <!-- <script src="public/scripts/vendor.js"></script>  -->
+    <script>if (window.module) module = window.module;</script>
+    <link rel="stylesheet" href="public/css/style.css">
+  </head>
+  <body id="pick">
+    <div class="select">
+      <h3>Select a champion </h3>
+      <br>
+      <button id="back" type="button" name="back">BACK</button>
+      <table id="list">
+        <!-- content -->
+      </table>
+    </div>
+    <div class="dialogClose">
+      <h4>confirm ?</h4>
+      <ul>
+        <li><a href="#" id="confirm">yes</a></li>
+        <li><a href="#" id="cancel">no</a></li>
+      </ul>
+    </div>
+  </body>
+  <script>
+
+    // You can also require other files to run in this process
+    require('./pick.js')
+  </script>
+</html>
