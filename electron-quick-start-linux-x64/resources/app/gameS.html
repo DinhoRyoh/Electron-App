@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="public/img/icon.png" />
+    <meta charset="UTF-8">
+    <title>game</title>
+    <!-- <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="public/scripts/jquery.min.js"></script> -->
+    <!-- <script src="public/scripts/vendor.js"></script>  -->
+    <!-- <script>if (window.module) module = window.module;</script> -->
+    <script type="text/javascript" src="public/scripts/jquery.typedtext.js"></script>
+        <link rel="stylesheet" href="public/css/style.css">
+    <script>
+    $(document).ready(function(){
+      var info = JSON.parse(localStorage.getItem('gameStorage'));
+      var img = $("<img>").attr({
+            alt: "Jean-Claude",
+            title: "awareness of a picture",
+            src:"public/img/black.png",
+            style:" width:100%; height: 100%"
+          });
+      $('#gameS').fadeTo(0,1).html(img);
+     $('#gameS').delay( 400 ).fadeTo( 1400, 0 ).html(img);
+
+    });
+    </script>
+
+  </head>
+  <body id="gameS">
+    <div class="gameS">
+
+    </div>
+  </body>
+
+</html>

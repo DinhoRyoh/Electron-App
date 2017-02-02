@@ -1,26 +1,5 @@
 $(document).ready(function() {
 
-  f404 = function() {
-    alert( "Ressource not found" );
-  }
-
-  //GET
-  function init(){
-  var $ = require('jquery');
-  var id = localStorage.getItem("champion_id");
-  $.ajax({
-    method: "GET",
-    url: "https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion/"+id+"?champData=all&api_key=RGAPI-0880278c-1402-4583-af24-614cd20d15c3",
-    statusCode: {
-        404: f404,
-        200: function(data) {
-          console.log(data);
-          var dat = JSON.stringify(data);
-          localStorage.setItem("champion", dat);
-        }
-      }
-  });
-  }
    champname = "";
    title = "";
    img ="";
@@ -29,13 +8,12 @@ $(document).ready(function() {
    attackdamage = "";
    hp="";
    mp="";
-   spellName="";
-   spellDescription="";
-   spellImage="";
-  init();
+   spellName=[];
+   spellDamage=[];
+   spellMana=[];
+   spellImage=[];
   var dat = JSON.parse(localStorage.getItem("champion"));
   $.each(dat, function(key,value){
-    console.log(key);
   switch (key) {
     case "name": champname = value;
 
@@ -60,7 +38,6 @@ $(document).ready(function() {
     switch (key) {
       case "armor": armor = value;
         break;
-      default:
       case "attackdamage": attackdamage = value;
         break;
       case "hp": hp = value;
@@ -69,43 +46,14 @@ $(document).ready(function() {
         break;
     }
   });
-  // spells:name,description,image,cost
-  $.each(dat.spells, function(key,value){
-    switch (key) {
-      case "name": spellName = $("<span>").html(value);
-        break;
-      default:
-      case "description": spellDescription = $("<span>").html(value);
-        break;
-      case "image": spellImage = "<img src='http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/"+value+"'";
-        break;
-    }
-  });
 
   });
-
-var info =JSON.parse(localStorage.getItem('gameStorage'));
-var difficulty = info[0].value;
-var name = info[1].value;
-var color = info[2].value;
-
-var titre = $("<h3>").html("<span style='color:rgb(249, 228, 148)'>Welcome</span> "+name).attr({
-  style:"color:"+color
-});
-console.log(champname);
-$(".info").append(titre);
-var introdution = $("<p>").html(champname+"  : "+title);
-$(".info").append(introdution);
-$(".info").append(tags+"<br>");
-$(".info").append(img+"<br><br>");
-$(".info").append(lore);
-console.log(attackdamage);
-$(".info").append("stats :<br>");
-$(".info").append(lore);
-$(".info").append("HP : "+hp+"    MP : "+mp+"<br>");
-$(".info").append("Attack damage : "+attackdamage+"    Armor : "+armor+"<br>");
-
-
-
-
+  for (var i = 0; i <= 3; i++) {
+       spellName.push(dat.spells[i].name);
+       $.each(dat.spells[i].effectBurn,function(key,value){
+         spellDamage[i] = dat.spells[i].effectBurn[1].split('/');
+       });
+       spellMana.push(dat.spells[i].cost[0]);
+       spellImage.push("<img src='http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/"+dat.spells[i].image.full+"' alt='"+dat.spells[i].name+"' title='"+dat.spells[i].name+"'>");
+  }
 });

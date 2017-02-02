@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="public/img/icon.png" />
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="public/scripts/jquery.min.js"></script>
+    <!-- <script src="public/scripts/vendor.js"></script>  -->
+    <script>if (window.module) module = window.module;</script>
+    <link rel="stylesheet" href="public/css/style.css">
+  </head>
+  <body id="menu">
+    <div class="menu-list">
+      <ul>
+        <li><a href="#" id="play">play</a></li>
+        <li><a href="#" id="option">Options</a></li>
+        <li><a href="#" id="exit">Exit</a></li>
+      </ul>
+    </div>
+    <div class="options">
+      <h4>Options</h4>
+      <hr>
+      <form class="record">
+        <label for="choose">Difficulty</label>
+        <select class="choose" name="choose">
+          <option value="1">easy</option>
+          <option value="2">normal</option>
+          <option value="3">hard</option>
+        </select><br><br>
+        <label for="nickname">write your name</label>
+        <input id="name" type="text" name="nickname" value="testeur"> <br><br>
+        <label for="">choose your colour</label><br><br>
+        <input type="radio" name="color" value="blue" checked="checked"><span style="color:blue;">blue</span>
+        <input type="radio" name="color" value="red"><span style="color:red;">red</span>
+        <input type="radio" name="color" value="yellow"><span style="color:yellow;">yellow</span><br><br>
+        <input type="radio" name="color" value="green"><span style="color:green;">green</span>
+        <input type="radio" name="color" value="pink"><span style="color:pink;">pink</span>
+        <input type="radio" name="color" value="orange"><span style="color:orange;">orange</span>
+        <br>
+        <div class="wrap">
+          <button id="submit"type="submit" name="sub">confirm</button>
+          <button id="cancel" type="button" name="cancel">cancel</button>
+        </div>
+      </form>
+    </div>
+    <div class="dialogClose">
+      <h4>Are you sure ?</h4>
+      <ul>
+        <li><a href="#" id="quit">yes</a></li>
+        <li><a href="#" id="stay">no</a></li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // You can also require other files to run in this process
+    require('./menu.js')
+  </script>
+</html>

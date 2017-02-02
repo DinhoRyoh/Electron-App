@@ -4,20 +4,53 @@
     <link rel="icon" type="image/png" href="public/img/icon.png" />
     <meta charset="UTF-8">
     <title>Your champion</title>
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="public/scripts/jquery.min.js"></script>
+    <!-- <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="public/scripts/jquery.min.js"></script> -->
     <!-- <script src="public/scripts/vendor.js"></script>  -->
-    <script>if (window.module) module = window.module;</script>
+    <!-- <script>if (window.module) module = window.module;</script> -->
     <link rel="stylesheet" href="public/css/style.css">
   </head>
   <body id="info">
     <div class="info">
 
     </div>
+    <br><br>
+    <button id="play" type="button" name="play">play</button>
+    <button id="back" type="button" name="back">back</button>
   </body>
   <script>
+  const $ = require('jquery');
 
     // You can also require other files to run in this process
     require('./selected.js')
+$(document).ready(function() {
+  var info =JSON.parse(localStorage.getItem('gameStorage'));
+  var difficulty = info[0].value;
+  var name = info[1].value;
+  var color = info[2].value;
+
+  var titre = $("<h3>").html("<span style='color:rgb(249, 228, 148)'>Welcome</span> "+name).attr({
+    style:"color:"+color
+  });
+
+  $(".info").append(titre);
+  var introdution = $("<p>").html(champname+"  : "+title);
+  $(".info").append(introdution);
+  $(".info").append(tags+"<br>");
+  $(".info").append(img+"<br><br>");
+  $(".info").append(lore);
+
+  $(".info").append("description :<br>");
+  $(".info").append(lore);
+  $(".info").append("stats :<br>");
+  $(".info").append("HP : "+hp+"    MP : "+mp+"<br>");
+  $(".info").append("Attack damage : "+attackdamage+"    Armor : "+armor+"<br>");
+  $("#play").click(function(){
+    $(location).attr('href',"game.html");
+  });
+  $("#back").click(function(){
+    $(location).attr('href',"pick.html");
+  });
+  });
   </script>
 </html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="public/img/icon.png" />
+    <meta charset="UTF-8">
+    <title>game: tutorial</title>
+    <!-- <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="public/scripts/jquery.min.js"></script> -->
+    <!-- <script src="public/scripts/vendor.js"></script>  -->
+    <!-- <script>if (window.module) module = window.module;</script> -->
+    <script type="text/javascript" src="public/scripts/jquery.typedtext.js"></script>
+        <link rel="stylesheet" href="public/css/style.css">
+    <script>
+    $(document).ready(function(){
+      var info = JSON.parse(localStorage.getItem('gameStorage'));
+      var difficulty = info[0].value;
+      var name = info[1].value;
+      var color = info[2].value;
+      var imgJC = $("<img>").attr({
+            alt: "Jean-Claude",
+            title: "awareness of a picture",
+            src:"public/img/jc1.jpg",
+            style:"border-radius:50%; height:60px;width:60px;"
+          });
+      var img2 = $("<img>").attr({
+            alt: "Jean-Claude",
+            title: "MAD JCVD",
+            src:"public/img/jc3.jpg",
+            style:"border-radius:50%; height:60px;width:60px;"
+          });
+      var imgCheep = $("<img>").attr({
+            alt: "cheap cheep",
+            title: "cheap cheep",
+            src:"public/img/cheep.svg",
+            style:"height:160px;width:160px;"
+          });
+      cheep =[
+               150,
+               10
+            ];
+      cheepHp = cheep[0];
+      $('.action').hide();
+      $('#continue').hide();
+      $("#yes").hide();
+      $("#no").hide();
+      $(".mySpell").hide();
+      $('#nom').fadeTo(0,0).html(imgJC);
+      $('#nom').fadeTo(0,0).append('<br>JCVD :');
+      $('#nom').delay(500).fadeTo( 1400, 1 ).html(imgJC);
+      $('#nom').delay(500).fadeTo( 1400, 1 ).append('<br>JCVD :');
+      window.setTimeout(function () {
+            $('.mySpell').show();
+            $("#myPicture").html(img);
+            $("#myName").html(champname);
+            $("#myTags").html(tags);
+            $("#myStats").html("HP : "+hp+"       MP : "+mp+"<br><br>");
+            $("#myStats").append("AD : "+attackdamage+"       Armor : "+armor);
+            ad = attackdamage;
+            $("#mySpell1").html(spellImage[0]+"<br>dmg :"+spellDamage[0][0]+"<br>cost :"+spellMana[0]);
+            $("#mySpell2").html(spellImage[1]+"<br>dmg :"+spellDamage[1][0]+"<br>cost :"+spellMana[1]);
+            $("#mySpell3").html(spellImage[2]+"<br>dmg :"+spellDamage[2][0]+"<br>cost :"+spellMana[2]);
+            $("#mySpell4").html(spellImage[3]+"<br>dmg :"+spellDamage[3][0]+"<br>cost :"+spellMana[3]);
+      }, 0);
+      $("#text").typedText("Where the f*ck the cheep is hiding ?!", "slow");
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('.enemy').fadeTo(0,0).html(imgCheep);
+            $('.enemy').fadeTo(0,0).append('<br>Cheap Cheep');
+            $('.enemy').delay(500).fadeTo( 1400, 1 ).html(imgCheep).append('<br>Cheap Cheep');
+            $('#health').delay(500).fadeTo( 1400, 1 ).html("HP :"+cheepHp);
+            $('#text').typedText("There it is ! I named it cheap cheep","slow");
+      }, 5000);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#text').typedText("because you know...yeah whatever","slow");
+      }, 8000);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#text').typedText("the gameplay is like common RPG","slow");
+      }, 11000);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#text').typedText("BUT my game is way too much better","slow");
+      }, 15000);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#text').typedText("Now you have to attack my cheap cheep.","slow");
+
+      }, 19000);
+
+        window.setTimeout(function () {
+              $('#text').html("");
+              $('#text').typedText("what are you waiting for ?","slow");
+        }, 23000);
+        window.setTimeout(function () {
+              $('#text').html("");
+              $('.action').show();
+              $('#text').typedText("just click on the button attack","slow");
+        }, 26000);
+
+        var flag = false;
+        var flag2 = false;
+        var flagF = false;
+      $('#attack').click(function(){
+        $('#text').html("");
+        $('#nom').html(img2);
+        $('#nom').append('<br>MADJCVD :');
+        if (flag == false) {
+          $('#text').typedText("WHAT HAVE YOU DONE !","fast");
+          cheepHp = Math.round(cheepHp-ad).toFixed(0);
+
+          console.log(cheepHp);
+
+          $('#health').html("HP :"+cheepHp);
+          flag = true;
+        }else if(flag2 == false) {
+          $('#text').typedText("NO ! PLEASE NO !","fast");
+          cheepHp = Math.round(cheepHp-ad).toFixed(0);
+          console.log(cheepHp);
+          $('#health').html("HP :"+cheepHp);
+          flag2 = true;
+        }
+        if (flagF == true) {
+          $('#text').html("");
+          $('#nom').html(img2);
+          $('#nom').append('<br>SADJCVD :');
+          $('#text').typedText("OK, I'm done","fast");
+          cheepHp = Math.round(cheepHp-ad).toFixed(0);
+          console.log(cheepHp);
+
+          $('#health').html("HP :"+cheepHp);
+          if (cheepHp <= 0) {
+            $('#attack').hide();
+            $('#continue').show();
+            $('#health').html("HP : DEAD");
+            $('.enemy').addClass("dead");
+          }
+        }
+        if (flag == true && flag2 == true) {
+          flagF = true;
+        }
+      });
+      $("#continue").click(function(){
+        $('#text').html("");
+        $('#nom').fadeTo(0,0).html(imgJC);
+        $('#nom').fadeTo(0,0).append('<br>JCVD :');
+        $('#nom').delay(500).fadeTo( 1400, 1 ).html(imgJC);
+        $('#nom').delay(500).fadeTo( 1400, 1 ).append('<br>JCVD :');
+        $("#text").typedText("Wait ! before you go", "slow");
+        window.setTimeout(function () {
+          $('#text').html("");
+          $("#text").typedText("You owe me a Cheep !", "slow");
+
+        }, 3000);
+        window.setTimeout(function () {
+          $('#text').html("");
+          $("#text").typedText("No wait ! You owe a bunch of cheeps !", "slow");
+
+        }, 7000);
+        window.setTimeout(function () {
+          $('#text').html("");
+          $("#text").typedText("Yeah don't forget to bring some for me", "slow");
+
+        }, 10000);
+        window.setTimeout(function () {
+          $('#text').html("");
+          $("#text").typedText("Holy Moly ! what am I suppose to do now ?", "slow");
+
+        }, 13000);
+        window.setTimeout(function () {
+          $(location).attr('href',"battle.html");
+        }, 17000);
+      });
+    });
+    </script>
+
+  </head>
+  <body id="gameS">
+    <div class="gameS">
+      <div class="bulle">
+        <div id="nom"></div>
+        <div class="conversation">
+          <div id="text"></div>
+        </div>
+      </div>
+      <div class="enemy">
+      </div>
+      <span id="health"></span>
+
+      <div class="action">
+        <button id="attack" type="button" name="attack">attack</button>
+        <button id="continue" type="button" name="continue">continue</button>
+      </div>
+      <div class="UHD">
+        <div class="myProfile">
+          <div class="left">
+            <div id="myPicture"></div>
+            <div id="myName"></div>
+          </div>
+          <div class="center">
+            <div id="myTags"></div>
+            <br>
+            <div id="myStats"></div>
+          </div>
+          <div class="mySpell">
+            <div id="mySpell1"></div>
+            <div id="mySpell2"></div>
+            <div id="mySpell3"></div>
+            <div id="mySpell4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+<script>
+  require('./selected.js');
+  require('./gameplay.js');
+</script>
+</html>

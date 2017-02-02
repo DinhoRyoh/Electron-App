@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="public/img/icon.png" />
+    <meta charset="UTF-8">
+    <title>game: tutorial</title>
+    <!-- <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="public/scripts/jquery.min.js"></script> -->
+    <!-- <script src="public/scripts/vendor.js"></script>  -->
+    <!-- <script>if (window.module) module = window.module;</script> -->
+    <script type="text/javascript" src="public/scripts/jquery.typedtext.js"></script>
+        <link rel="stylesheet" href="public/css/style.css">
+    <script>
+    $(document).ready(function(){
+      var info = JSON.parse(localStorage.getItem('gameStorage'));
+      var difficulty = info[0].value;
+      var name = info[1].value;
+      var color = info[2].value;
+      var imgJC = $("<img>").attr({
+            alt: "Jean-Claude",
+            title: "awareness of a picture",
+            src:"public/img/jc1.jpg",
+            style:"border-radius:50%; height:60px;width:60px;"
+          });
+      var img2 = $("<img>").attr({
+            alt: "Jean-Claude",
+            title: "MAD JCVD",
+            src:"public/img/jc3.jpg",
+            style:"border-radius:50%; height:60px;width:60px;"
+          });
+      });
+    </script>
+
+  </head>
+  <body id="gameS">
+    <div class="gameS">
+      <div class="bulle">
+        <div id="nom"></div>
+        <div class="conversation">
+          <div id="text"></div>
+        </div>
+      </div>
+      <div class="enemy">
+      </div>
+      <span id="health"></span>
+
+      <div class="action">
+        <button id="attack" type="button" name="yes">attack</button>
+      </div>
+      <div class="UHD">
+        <div class="myProfile">
+          <div class="left">
+            <div id="myPicture"></div>
+            <div id="myName"></div>
+          </div>
+          <div class="center">
+            <div id="myTags"></div>
+            <br>
+            <div id="myStats"></div>
+          </div>
+          <div class="mySpell">
+            <div id="mySpell1"></div>
+            <div id="mySpell2"></div>
+            <div id="mySpell3"></div>
+            <div id="mySpell4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+<script>
+  require('./enemy.js');
+  require('./selected.js');
+  require('./gameplay.js');
+</script>
+</html>

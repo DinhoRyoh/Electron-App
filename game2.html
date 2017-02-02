@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="public/img/icon.png" />
+    <meta charset="UTF-8">
+    <title>game</title>
+    <!-- <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="public/scripts/jquery.min.js"></script> -->
+    <!-- <script src="public/scripts/vendor.js"></script>  -->
+    <!-- <script>if (window.module) module = window.module;</script> -->
+    <script type="text/javascript" src="public/scripts/jquery.typedtext.js"></script>
+    <script>
+    $(document).ready(function(){
+      var info = JSON.parse(localStorage.getItem('gameStorage'));
+      console.log();
+      $("#text").typedText(info[1].value+" ?", "slow");
+
+        var img = $("<img>").attr({
+              alt: "Jean-Claude",
+              title: "awareness of a picture",
+              src:"public/img/jc1.jpg",
+              style:"border-radius:50%"
+            });
+            $('#nom').fadeTo(0,0).html(img);
+            $('#nom').fadeTo(0,0).append('<br>Jean-Claude Van damme :');
+          $('#nom').delay( 8000 ).fadeTo( 1400, 1 ).html(img);
+          $('#nom').delay( 8000).fadeTo( 1400, 1 ).append('<br>Jean-Claude Van damme :');
+
+      window.setTimeout(function () {
+            $('#text2').typedText(" is that you "+info[1].value+" ?","slow");
+      }, 3500);
+
+      window.setTimeout(function () {
+            $('#text3').typedText('are you aware nowadays situation ?',"slow");
+      }, 7500);
+      window.setTimeout(function () {
+            $('#text4').typedText('OK...let me explain you what is about',"slow");
+      }, 11500);
+      window.setTimeout(function () {
+        $(this).keypress(function(){
+          console.log('key pressed')
+          $(location).attr('href',"gameS.html");
+        });
+        $(this).click(function(){
+          console.log('clicked')
+          $(location).attr('href',"gameS.html");
+        });
+        $('.press').append('press key to continue...');
+        for (var i = 0; i < 500; i++) {
+          $( '.press' ).delay( 200 ).fadeIn( 1200 );
+          $( '.press' ).delay( 200 ).fadeOut( 1400 );
+          $( '.press' ).delay( 200 ).fadeIn( 1200 );
+          $( '.press' ).delay( 200 ).fadeOut( 1400 );
+          $( '.press' ).delay( 200 ).fadeIn( 1200 );
+          $( '.press' ).delay( 200 ).fadeOut( 1400 );
+        }
+      }, 14500);
+
+    });
+    </script>
+    <link rel="stylesheet" href="public/css/style.css">
+  </head>
+  <body id="game">
+    <div class="game2">
+      <div id="nom"></div>
+      <br><br>
+      <div id="text"></div>
+      <div id="text2"></div>
+      <div id="text3"></div>
+      <div id="text4"></div>
+    </div>
+    <br><br>
+    <div class="press">
+
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="public/img/icon.png" />
+    <meta charset="UTF-8">
+    <title>game</title>
+    <!-- <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="public/scripts/jquery.min.js"></script> -->
+    <!-- <script src="public/scripts/vendor.js"></script>  -->
+    <!-- <script>if (window.module) module = window.module;</script> -->
+    <script type="text/javascript" src="public/scripts/jquery.typedtext.js"></script>
+    <script>
+    $(document).ready(function(){
+      var info = JSON.parse(localStorage.getItem('gameStorage'));
+      console.log();
+      $("#text").typedText("Long time ago...", "slow");
+      window.setTimeout(function () {
+            $('#text2').typedText('in a fantasy world where the salt is everywhere...',"slow");
+      }, 2500);
+      window.setTimeout(function () {
+            $('#text3').typedText('violence, murder, broken families, people were hopeless and they try to survive day by day.',"slow");
+      }, 7500);
+      window.setTimeout(function () {
+            $('#text4').typedText('But today, things gonna change.',"slow");
+      }, 15000);
+      window.setTimeout(function () {
+            $('#text5').typedText('  A knowless hero is about to give world hope, and plan to vanish it from monsters.',"slow");
+      }, 20000);
+      window.setTimeout(function () {
+            $('#text6').typedText('and the hero is...',"slow");
+      }, 28000);
+      window.setTimeout(function () {
+
+            $('#text7').html('YOU').attr('style','color:'+info[2].value);
+      }, 32000);
+      window.setTimeout(function () {
+        $(this).keypress(function(){
+          console.log('key pressed')
+          $(location).attr('href',"game2.html");
+        });
+        $(this).click(function(){
+          console.log('clicked')
+          $(location).attr('href',"game2.html");
+        });
+        $('.press').append('press key to continue...');
+        for (var i = 0; i < 500; i++) {
+          $( '.press' ).delay( 200 ).fadeOut( 1400 );
+          $( '.press' ).delay( 200 ).fadeIn( 1200 );
+          $( '.press' ).delay( 200 ).fadeOut( 1400 );
+          $( '.press' ).delay( 200 ).fadeIn( 1200 );
+          $( '.press' ).delay( 200 ).fadeOut( 1400 );
+          $( '.press' ).delay( 200 ).fadeIn( 1200 );
+        }
+      }, 32500);
+
+    });
+    </script>
+    <link rel="stylesheet" href="public/css/style.css">
+  </head>
+  <body id="game">
+    <div class="game">
+      <div id="text"></div>
+      <div id="text2"></div>
+      <div id="text3"></div>
+      <div id="text4"></div>
+      <div id="text5"></div>
+      <div id="text6"></div>
+      <div id="text7"></div>
+    </div>
+    <br><br>
+    <div class="press">
+
+    </div>
+  </body>
+
+</html>

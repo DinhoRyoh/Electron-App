@@ -1,0 +1,176 @@
+@font-face {
+  font-family: "myFont";
+	src: url('Railway to Hells.ttf');
+}
+/*****************************
+      main-title
+*****************************/
+body{
+  width: 1250px;
+  height: auto;
+  font-family: "myFont";
+  text-shadow: 5px 5px darkblue;
+  background-image: url('../img/title.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: rgb(249, 228, 148);
+}
+.main-title{
+  text-align: center;
+}
+.main-title h1{
+  margin: 0 auto;
+  padding-top: 50%;
+  font-size: 40px;
+}
+/*****************************
+          menu
+*****************************/
+#menu{
+  background-image: url('../img/menu.jpg');
+  font-size: 20px;
+}
+.menu-list{
+  padding-left: 70px;
+  margin-top: 350px;
+}
+ul{
+  list-style: none;
+}
+ul li{
+  margin-bottom: 20px;
+}
+ul li a{
+  text-decoration: none;
+  color: yellow;
+}
+ul li a:hover{
+  color: lightgreen;
+}
+/*****************
+      options
+*****************/
+.options{
+  display: none;
+  position: absolute;
+  text-align: center;
+  top: 50px;
+  left: 240px;
+  background-image: url('../img/option.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  border: 1px solid black;
+  width: 850px;
+  height: 650px;
+}
+.options form{
+  text-align: left;
+  margin-top: 25px;
+  margin-left: 75px;
+  margin-right: 75px;
+}
+.options form select{
+  margin-left: 120px;
+  padding: 7px 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: yellow;
+  text-shadow: 5px 5px darkblue;
+}
+.options form input{
+  margin-left: 40px;
+  padding: 7px 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: yellow;
+}
+.options form .wrap{
+  text-align: center;
+  margin-top: 100px;
+}
+.options form .wrap button{
+  margin-left: 40px;
+  padding: 7px 50px;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: yellow;
+}
+button{
+  padding: 7px 50px;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: yellow;
+}
+/*****************
+      exit
+*****************/
+.dialogClose{
+  z-index: 5;
+  display: none;
+  position: absolute;
+  text-align: center;
+  top: 250px;
+  left: 500px;
+  background-color: rgba(0,0,0,0.8);
+  border: 1px solid black;
+  width: 250px;
+  height: 200px;
+}
+.dialogClose ul{
+  margin-left: -40px;
+}
+/*****************************
+          pick
+*****************************/
+#pick{
+  background-image: url('../img/pick.jpg');
+  font-size: 20px;
+}
+
+.select{
+  text-align: center;
+}
+#list{
+  margin-left: 70px;
+}
+/*****************************
+          info
+*****************************/
+#info{
+  background-image: url('../img/pick.jpg');
+  font-size: 20px;
+  font-family: sans-serif;
+  text-shadow: none;
+  text-align: center;
+}
+.info{
+  background-color: rgba(0,0, 0, 0.2);
+}
+
+/*****************************
+          game
+*****************************/
+#game{
+  background-image: none;
+  background-color: black;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-shadow: none;
+  text-align: center;
+  text-align: center;
+}
+.game{
+  margin-top: 350px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.game2{
+  margin-top: 150px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#gameS{
+  background-image: none;
+  background-color: black;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-shadow: none;
+  text-align: center;
+  text-align: center;
+}
