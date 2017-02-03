@@ -1,6 +1,4 @@
-const $ = require('jquery')
 $(document).ready(function() {
-
 
    champname = "";
    title = "";
@@ -10,13 +8,12 @@ $(document).ready(function() {
    attackdamage = "";
    hp="";
    mp="";
-   spellName="";
-   spellDescription="";
-   spellImage="";
-
+   spellName=[];
+   spellDamage=[];
+   spellMana=[];
+   spellImage=[];
   var dat = JSON.parse(localStorage.getItem("champion"));
   $.each(dat, function(key,value){
-    console.log(key);
   switch (key) {
     case "name": champname = value;
 
@@ -49,47 +46,14 @@ $(document).ready(function() {
         break;
     }
   });
-  // spells:name,description,image,cost
-  $.each(dat.spells, function(key,value){
-    switch (key) {
-      case "name": spellName = $("<span>").html(value);
-        break;
-      default:
-      case "description": spellDescription = $("<span>").html(value);
-        break;
-      case "image": spellImage = "<img src='http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/"+value+"'";
-        break;
-    }
-  });
 
   });
-
-var info =JSON.parse(localStorage.getItem('gameStorage'));
-var difficulty = info[0].value;
-var name = info[1].value;
-var color = info[2].value;
-
-var titre = $("<h3>").html("<span style='color:rgb(249, 228, 148)'>Welcome</span> "+name).attr({
-  style:"color:"+color
-});
-console.log(champname);
-$(".info").append(titre);
-var introdution = $("<p>").html(champname+"  : "+title);
-$(".info").append(introdution);
-$(".info").append(tags+"<br>");
-$(".info").append(img+"<br><br>");
-$(".info").append(lore);
-console.log(attackdamage);
-$(".info").append("description :<br>");
-$(".info").append(lore);
-$(".info").append("stats :<br>");
-$(".info").append("HP : "+hp+"    MP : "+mp+"<br>");
-$(".info").append("Attack damage : "+attackdamage+"    Armor : "+armor+"<br>");
-$("#play").click(function(){
-  $(location).attr('href',"game.html");
-});
-$("#back").click(function(){
-  $(location).attr('href',"pick.html");
-});
-
+  for (var i = 0; i <= 3; i++) {
+       spellName.push(dat.spells[i].name);
+       $.each(dat.spells[i].effectBurn,function(key,value){
+         spellDamage[i] = dat.spells[i].effectBurn[1].split('/');
+       });
+       spellMana.push(dat.spells[i].cost[0]);
+       spellImage.push("<img src='http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/"+dat.spells[i].image.full+"' alt='"+dat.spells[i].name+"' title='"+dat.spells[i].name+"'>");
+  }
 });

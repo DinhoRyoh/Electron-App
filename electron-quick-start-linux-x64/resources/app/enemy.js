@@ -1,4 +1,12 @@
-var php = require("php");
+
+var champion = function(name, attack, hp,mp, armor,spell) {
+      this.name = name;
+      this.attack = attack;
+      this.hp = hp;
+      this.mp = mp;
+      this.armor =armor;
+      this.spell = spell;
+}
 
 $.extend(champion.prototype, {
       getName: function() {
@@ -32,8 +40,10 @@ $.extend(champion.prototype, {
             this.armor = armor;
       },
       attack: function(target) {
-        var objEnemy = JSON.parse(target);
-        target.hp = target.hp - this.attack;
+        if (target.instanceof 'enemy') {
+          target.hp = target.hp - this.attack;
+        }
+
       },
       spell: function(enemy target, id) {
             target.hp = target.hp - spell[id][0];

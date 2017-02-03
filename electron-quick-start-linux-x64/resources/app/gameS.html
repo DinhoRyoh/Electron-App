@@ -13,23 +13,157 @@
     <script>
     $(document).ready(function(){
       var info = JSON.parse(localStorage.getItem('gameStorage'));
-      var img = $("<img>").attr({
+      var difficulty = info[0].value;
+      var name = info[1].value;
+      var color = info[2].value;
+      var imgJC = $("<img>").attr({
             alt: "Jean-Claude",
             title: "awareness of a picture",
-            src:"public/img/black.png",
-            style:" width:100%; height: 100%"
+            src:"public/img/jc1.jpg",
+            style:"border-radius:50%; height:60px;width:60px;"
           });
-      $('#gameS').fadeTo(0,1).html(img);
-     $('#gameS').delay( 400 ).fadeTo( 1400, 0 ).html(img);
+      var img2 = $("<img>").attr({
+            alt: "Jean-Claude",
+            title: "MAD JCVD",
+            src:"public/img/jc2.jpg",
+            style:"border-radius:50%; height:60px;width:60px;"
+          });
+      $("#yes").hide();
+      $("#no").hide();
+      $(".mySpell").hide();
+      $('#nom').fadeTo( 0, 0 ).html(imgJC);
+      $('#nom').fadeTo( 0, 0 ).append('<br>JCVD :');
+      $('#nom').delay(500).fadeTo( 1400, 1 ).html(imgJC);
+      $('#nom').delay(500).fadeTo( 1400, 1 ).append('<br>JCVD :');
+      $("#text").typedText("Lot of things has changed since you left.", "slow");
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#text').typedText("Piltover as you know is now nothing but...","slow");
+      }, 3000);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#text').typedText("MONSTERS' LAIR","slow");
+      }, 7000);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#text').typedText("I'm going to teach you how to survive","slow");
+      }, 10000);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#text').typedText("please follow my instructions...","slow");
+      }, 15000);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#nom').html(img2);
+            $('#nom').append('<br>MADJCVD :');
+            $('#text').typedText("Or I kill you !","fast");
+      }, 18000);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#nom').fadeTo( 0, 0 ).html(imgJC);
+            $('#nom').fadeTo( 0, 0 ).append('<br>JCVD :');
+            $('#nom').delay(500).fadeTo( 1400, 1 ).html(imgJC);
+            $('#nom').delay(500).fadeTo( 1400, 1 ).append('<br>JCVD :');
+            $('#text').typedText("Ok now, let's see how it works","slow");
+      }, 22000);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#text').typedText("Can you see your UHD ?","slow");
+      }, 26000);
+      window.setTimeout(function () {
 
+        $('.mySpell').show();
+        $("#myPicture").html(img);
+        $("#myName").html(champname);
+        $("#myTags").html(tags);
+        $("#myStats").html("HP : "+hp+"       MP : "+mp+"<br><br>");
+        $("#myStats").append("AD : "+attackdamage+"       Armor : "+armor);
+        $("#mySpell1").html(spellImage[0]+"<br>dmg :"+spellDamage[0][0]+"<br>cost :"+spellMana[0]);
+        $("#mySpell2").html(spellImage[1]+"<br>dmg :"+spellDamage[1][0]+"<br>cost :"+spellMana[1]);
+        $("#mySpell3").html(spellImage[2]+"<br>dmg :"+spellDamage[2][0]+"<br>cost :"+spellMana[2]);
+        $("#mySpell4").html(spellImage[3]+"<br>dmg :"+spellDamage[3][0]+"<br>cost :"+spellMana[3]);
+      }, 0);
+      window.setTimeout(function () {
+            $('#text').html("");
+            $('#text').typedText(name+" do I have to explain how to play ?","slow");
+      }, 33000);
+      window.setTimeout(function () {
+        $("#yes").show();
+        $("#no").show();
+      }, 35000);
+      $("#yes").click(function(){
+        $('#text').html("");
+        $('#text').typedText("Ok ! so, where is my sheep ?","slow");
+        $("#yes").hide();
+        $("#no").hide();
+        window.setTimeout(function () {
+             $(location).attr('href',"tutorial.html");
+        }, 3000);
+      });
+      $("#no").click(function(){
+        $('#text').html("");
+        $('#text').typedText("I see, oh ! I have a request for you","slow");
+        $("#yes").hide();
+        $("#no").hide();
+        window.setTimeout(function () {
+          $('#text').html("");
+          $('#text').typedText("Can you catch sheeps when you meet them ?","slow");
+        }, 4000);
+        window.setTimeout(function () {
+          $('#text').html("");
+          $('#text').typedText("You better not to ask me why","slow");
+        }, 8000);
+        window.setTimeout(function () {
+          $('#text').html("");
+          $('#text').typedText("You better not.","slow");
+        }, 11000);
+        window.setTimeout(function () {
+          $('#text').html("");
+          $('#text').typedText("Alright "+name+". Good luck !","slow");
+        }, 14000);
+        window.setTimeout(function () {
+             $(location).attr('href',"battle.html");
+        }, 18000);
+
+      });
     });
     </script>
 
   </head>
   <body id="gameS">
     <div class="gameS">
-
+      <div class="bulle">
+        <div id="nom"></div>
+        <div class="conversation">
+          <div id="text"></div>
+        </div>
+      </div>
+      <div class="question">
+        <button id="yes" type="button" name="yes">yes</button>
+        <button id="no" type="button" name="no">no</button>
+      </div>
+      <div class="UHD">
+        <div class="myProfile">
+          <div class="left">
+            <div id="myPicture"></div>
+            <div id="myName"></div>
+          </div>
+          <div class="center">
+            <div id="myTags"></div>
+            <br>
+            <div id="myStats"></div>
+          </div>
+          <div class="mySpell">
+            <div id="mySpell1"></div>
+            <div id="mySpell2"></div>
+            <div id="mySpell3"></div>
+            <div id="mySpell4"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
-
+<script>
+  require('./selected.js');
+</script>
 </html>

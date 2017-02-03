@@ -222,6 +222,7 @@ button{
 .center{
   float: left;
   margin-left: 20px;
+  width: 250px;
 }
 .mySpell{
   text-align: center;
@@ -232,14 +233,14 @@ button{
   padding-left: 43.6px;
   padding-right: 43.6px;
   height: 130px;
-  width: 134px;
+  width: 129.7px;
   border-left:2px rgb(249, 228, 148) solid;
   border-right: rgb(249, 228, 148) solid;
 }
 #mySpell2{
   float: left;
   height: 130px;
-  width: 134px;
+  width: 129.7px;
   padding-left: 43.6px;
   padding-right: 43.6px;
   border-right: rgb(249, 228, 148) solid;
@@ -247,7 +248,7 @@ button{
 #mySpell3{
   float: left;
   height: 130px;
-  width: 134px;
+  width: 129.7px;
   padding-left: 43.6px;
   padding-right: 43.6px;
   border-right: rgb(249, 228, 148) solid;
@@ -255,7 +256,7 @@ button{
 #mySpell4{
   float: left;
   height: 130px;
-  width: 134px;
+  width: 129.7px;
   padding-left: 43.6px;
   padding-right: 43.6px;
   border-right: rgb(249, 228, 148) solid;

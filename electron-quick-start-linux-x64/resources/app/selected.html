@@ -19,8 +19,38 @@
     <button id="back" type="button" name="back">back</button>
   </body>
   <script>
+  const $ = require('jquery');
 
     // You can also require other files to run in this process
     require('./selected.js')
+$(document).ready(function() {
+  var info =JSON.parse(localStorage.getItem('gameStorage'));
+  var difficulty = info[0].value;
+  var name = info[1].value;
+  var color = info[2].value;
+
+  var titre = $("<h3>").html("<span style='color:rgb(249, 228, 148)'>Welcome</span> "+name).attr({
+    style:"color:"+color
+  });
+
+  $(".info").append(titre);
+  var introdution = $("<p>").html(champname+"  : "+title);
+  $(".info").append(introdution);
+  $(".info").append(tags+"<br>");
+  $(".info").append(img+"<br><br>");
+  $(".info").append(lore);
+
+  $(".info").append("description :<br>");
+  $(".info").append(lore);
+  $(".info").append("stats :<br>");
+  $(".info").append("HP : "+hp+"    MP : "+mp+"<br>");
+  $(".info").append("Attack damage : "+attackdamage+"    Armor : "+armor+"<br>");
+  $("#play").click(function(){
+    $(location).attr('href',"game.html");
+  });
+  $("#back").click(function(){
+    $(location).attr('href',"pick.html");
+  });
+  });
   </script>
 </html>

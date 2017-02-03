@@ -13,26 +13,26 @@
     $(document).ready(function(){
       var info = JSON.parse(localStorage.getItem('gameStorage'));
       console.log();
+      $("#text").typedText(info[1].value+" ?", "slow");
 
-          var img = $("<img>").attr({
-                alt: "Jean-Claude",
-                title: "awareness of a picture",
-                src:"public/img/jc1.jpg",
-                style:"border-radius:50%"
-              });
-              $('#nom').fadeTo(0,0).html(img);
-              $('#nom').fadeTo(0,0).append('<br>Jean-Claude Van damme :');
-            $('#nom').delay( 400 ).fadeTo( 1400, 1 ).html(img);
-            $('#nom').delay( 400 ).fadeTo( 1400, 1 ).append('<br>Jean-Claude Van damme :');
+        var img = $("<img>").attr({
+              alt: "Jean-Claude",
+              title: "awareness of a picture",
+              src:"public/img/jc1.jpg",
+              style:"border-radius:50%"
+            });
+          $('#nom').delay( 8000 ).fadeTo( 1400, 1 ).html(img);
+          $('#nom').delay( 8000).fadeTo( 1400, 1 ).append('<br>Jean-Claude Van damme :');
+
       window.setTimeout(function () {
-            $("#text").typedText(info[1].value+" ? is that you "+info[1].value+" ?", "slow");
+            $('#text2').typedText(" is that you "+info[1].value+" ?","slow");
       }, 3500);
 
       window.setTimeout(function () {
-            $('#text2').typedText('are you aware nowadays situation ? ? hum...',"slow");
+            $('#text3').typedText('are you aware nowadays situation ?',"slow");
       }, 7500);
       window.setTimeout(function () {
-            $('#text3').typedText('lemme explain you what is about',"slow");
+            $('#text4').typedText('OK...let me explain you what is about',"slow");
       }, 11500);
       window.setTimeout(function () {
         $(this).keypress(function(){
@@ -65,6 +65,7 @@
       <div id="text"></div>
       <div id="text2"></div>
       <div id="text3"></div>
+      <div id="text4"></div>
     </div>
     <br><br>
     <div class="press">
